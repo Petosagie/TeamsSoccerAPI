@@ -1,4 +1,4 @@
-const swaggerAutogen = require('swagger-autogen')();  //Week 2
+const swaggerAutogen = require('swagger-autogen')();  
 
 const doc = {
     info: {
