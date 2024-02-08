@@ -39,11 +39,11 @@ const createCoach = async (req, res) => {
   try {
     // Extract coach details from the request body
     const coach = {
-      Name: req.body.Name,
+      Full_Names: req.body.Full_Names,
       Coach_ID: req.body.Coach_ID,
       Age: req.body.Age,
       Nationality: req.body.Nationality,
-      Matches: req.body.Matches,
+      NO_Matches: req.body.NO_Matches,
       Team_ID: req.body.Team_ID,
     };
     const newCoach = await Coaches.create(coach);
@@ -66,10 +66,10 @@ const updateCoach = async (req, res) => {
     // Extract coach details from the request body
     const coach = {
       Coach_ID: coachId,
-      Name: req.body.Name,
+      Full_Names: req.body.Full_Names,
       Age: req.body.Age,
       Nationality: req.body.Nationality,
-      Matches: req.body.Matches,
+      NO_Matches: req.body.NO_Matches,
       Team_ID: req.body.Team_ID,
 
     };
