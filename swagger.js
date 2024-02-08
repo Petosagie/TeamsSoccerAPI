@@ -5,7 +5,7 @@ const doc = {
         title: "TeamSoccerAPI",
         description: "API for NodeJS (TeamSoccerAPI) Information on teams, players, coaches, and matches."
     },
-    host: "localhost:3000",
+    host: "http://localhost:3000",
     schemes: ['https']
     };
 
