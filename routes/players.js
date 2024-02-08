@@ -4,7 +4,7 @@ const playersController = require("../controllers/players");
 
 router.get("/", playersController.getAllPlayers);
 router.get("/:Player_ID", playersController.getPlayerById);
-router.get("/position/:Position", playersController.getPlayersByPosition);
+router.get("/Position/:Player_Position", playersController.getPlayersByPosition);
 router.post("/", playersController.createPlayer);
 router.put("/:Player_ID", playersController.updatePlayer);
 router.delete("/:Player_ID", playersController.deletePlayer);

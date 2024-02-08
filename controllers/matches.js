@@ -79,7 +79,6 @@ const updateMatch = async (req, res) => {
       Match_ID: matchId,
       Date: new Date(req.body.Date),
       Teams_Involved: req.body.Teams_Involved,
-
       Score: req.body.Score,
       Stadium: req.body.Stadium,
       Goals: req.body.Goals.map(goal => ({

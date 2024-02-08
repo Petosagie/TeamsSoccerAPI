@@ -27,6 +27,7 @@ TeamSoccerAPI is a comprehensive soccer data interface that offers detailed info
 - **Players**
   - GET /players
   - GET /players/{playerID}
+  -	GET/players/{Position}
   - POST /players
   - PUT /players/{playerID}
   - DELETE /players/{playerID}

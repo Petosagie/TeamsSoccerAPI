@@ -41,8 +41,8 @@ const getPlayerById = async (req, res) => {
 const getPlayersByPosition = async (req, res) => {
   //#swagger.tags=["players"]
   try {
-    const position = req.params.Position;
-    const playersByPosition = await Players.find({ Position: position });
+    const position = req.params.Player_Position;
+    const playersByPosition = await Players.find({ Player_Position: position });
     res.status(200).json(playersByPosition);
   } catch (error) {
     console.error("Error fetching players by position", error);

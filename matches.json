@@ -13,25 +13,27 @@
     {
       "Match_ID": "M002",
       "Match_Date": "2024-02-05",
+      "Teams_Involved": ["LIV", "MCI"],
       "Score": "1-1",
       "Stadium": "Anfield",
       "Goals": [
         { "Player_ID": "P003", "Time": "30" },
         { "Player_ID": "P004", "Time": "75" }
-      ],
-      "Teams_Involved": ["LIV", "MCI"]
+      ]
+      
     },
     {
       "Match_ID": "M003",
       "Match_Date": "2024-02-10",
+      "Teams_Involved": ["MCI", "CHE"],
       "Score": "3-2",
       "Stadium": "Etihad Stadium",
       "Goals": [
         { "Player_ID": "P005", "Time": "10" },
         { "Player_ID": "P006", "Time": "40" },
         { "Player_ID": "P007", "Time": "60" }
-      ],
-      "Teams_Involved": ["MCI", "CHE"]
+      ]
+      
     }
   ]
   

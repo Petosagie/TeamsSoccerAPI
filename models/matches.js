@@ -12,7 +12,7 @@ const matchSchema = new mongoose.Schema({
     message: "Date must be a date.",
   },
   Teams_Involved: {
-    type: String,
+    type: Array,
     message: 'Teams_Involved must be an array of two strings, each with exactly 3 digits, like "CHE".'
   },
   Score: {
