@@ -1,0 +1,710 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "TeamsSoccerAPI",
+    "description": "API ",
+    "version": "1.0.0"
+  },
+  "host": "localhost:3000",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/api-docs": {
+      "get": {
+        "description": "",
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/teams/": {
+      "get": {
+        "tags": [
+          "teams"
+        ],
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "teams"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "Team_Name": {
+                  "example": "any"
+                },
+                "Coach_ID": {
+                  "example": "any"
+                },
+                "Location": {
+                  "example": "any"
+                },
+                "Team_ID": {
+                  "example": "any"
+                },
+                "Founded_Year": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/teams/{Team_ID}": {
+      "get": {
+        "tags": [
+          "teams"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "Team_ID",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "teams"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "Team_ID",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "Team_ID": {
+                  "example": "any"
+                },
+                "Team_Name": {
+                  "example": "any"
+                },
+                "Venue": {
+                  "example": "any"
+                },
+                "Location": {
+                  "example": "any"
+                },
+                "Founded_Year": {
+                  "example": "any"
+                },
+                "Coach_ID": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "teams"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "Team_ID",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/players/": {
+      "get": {
+        "tags": [
+          "players"
+        ],
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "players"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "Player_ID": {
+                  "example": "any"
+                },
+                "Name": {
+                  "example": "any"
+                },
+                "Age": {
+                  "example": "any"
+                },
+                "Height": {
+                  "example": "any"
+                },
+                "Nationality": {
+                  "example": "any"
+                },
+                "Position": {
+                  "example": "any"
+                },
+                "Team_ID": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/players/{Player_ID}": {
+      "get": {
+        "tags": [
+          "players"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "Player_ID",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "players"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "Player_ID",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "Name": {
+                  "example": "any"
+                },
+                "Position": {
+                  "example": "any"
+                },
+                "Age": {
+                  "example": "any"
+                },
+                "Nationality": {
+                  "example": "any"
+                },
+                "Team_ID": {
+                  "example": "any"
+                },
+                "Height": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "players"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "Player_ID",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/players/position/{Position}": {
+      "get": {
+        "tags": [
+          "players"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "Position",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/coaches/": {
+      "get": {
+        "tags": [
+          "coaches"
+        ],
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "coaches"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "Name": {
+                  "example": "any"
+                },
+                "Coach_ID": {
+                  "example": "any"
+                },
+                "Age": {
+                  "example": "any"
+                },
+                "Nationality": {
+                  "example": "any"
+                },
+                "Matches": {
+                  "example": "any"
+                },
+                "Team_ID": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/coaches/{Coach_ID}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "Coach_ID",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "coaches"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "Coach_ID",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "Name": {
+                  "example": "any"
+                },
+                "Age": {
+                  "example": "any"
+                },
+                "Nationality": {
+                  "example": "any"
+                },
+                "Matches": {
+                  "example": "any"
+                },
+                "Team_ID": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "coaches"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "Coach_ID",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/matches/": {
+      "get": {
+        "tags": [
+          "matches"
+        ],
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "matches"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "Match_ID": {
+                  "example": "any"
+                },
+                "Date": {
+                  "example": "any"
+                },
+                "Teams_Involved": {
+                  "example": "any"
+                },
+                "Score": {
+                  "example": "any"
+                },
+                "Stadium": {
+                  "example": "any"
+                },
+                "Goals": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/matches/{Match_ID}": {
+      "get": {
+        "tags": [
+          "matches"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "Match_ID",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "matches"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "Match_ID",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "Date": {
+                  "example": "any"
+                },
+                "Teams_Involved": {
+                  "example": "any"
+                },
+                "Score": {
+                  "example": "any"
+                },
+                "Stadium": {
+                  "example": "any"
+                },
+                "Goals": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "matches"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "Match_ID",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/matches/teams/{Team_ID}": {
+      "get": {
+        "tags": [
+          "matches"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "Team_ID",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    }
+  }
+}

@@ -19,6 +19,10 @@ const coachSchema = new mongoose.Schema({
     type: String,
     message: "Nationality must be a string with no more than 25 characters.",
   },
+  Matches: {
+    type: Number,
+    message: "Number of Matches must be an integer.",
+  },
   Team_ID: {
     type: String,
     message: 'Team_ID must be a string of exactly 3 digits, like "MAN".',

@@ -43,6 +43,7 @@ const createCoach = async (req, res) => {
       Coach_ID: req.body.Coach_ID,
       Age: req.body.Age,
       Nationality: req.body.Nationality,
+      Matches: req.body.Matches,
       Team_ID: req.body.Team_ID,
     };
     const newCoach = await Coaches.create(coach);
@@ -50,8 +51,8 @@ const createCoach = async (req, res) => {
   } catch (error) {
     // Log the detailed error information
     console.error("Error creating coach:", error);
-    // Respond with a 500 Internal Server Error status and a more specific error message
-    res.status(500).json({
+    // Respond with a 400 which indicate a bad request 
+    res.status(400).json({
       error: "Error creating coach. Check the server logs for more details.",
     });
   }
@@ -68,6 +69,7 @@ const updateCoach = async (req, res) => {
       Name: req.body.Name,
       Age: req.body.Age,
       Nationality: req.body.Nationality,
+      Matches: req.body.Matches,
       Team_ID: req.body.Team_ID,
 
     };
@@ -83,8 +85,8 @@ const updateCoach = async (req, res) => {
     // Log the detailed error information
     console.error("Error updating coach:", error)
 
-    // Respond with a 500 Internal Server Error status and a more specific error message
-    res.status(500).json({
+    // Respond with a 400 which indicate a bad request 
+    res.status(400).json({
       error: "Error updating coach. Check the server logs for more details.",
     });
   }
@@ -102,8 +104,8 @@ const deleteCoach = async (req, res) => {
     // Log the detailed error information
     console.error("Error deleting coach:", error);
 
-    // Respond with a 500 Internal Server Error status and a more specific error message
-    res.status(500).json({
+    // Respond with a 400 which indicate a bad request 
+    res.status(400).json({
       error: "Error deleting coach. Check the server logs for more details.",
     });
   }

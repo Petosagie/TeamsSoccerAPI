@@ -13,6 +13,7 @@ Content-Type: application/json
         "Name": "Mauricio Pochettino",
         "Age": "51",
         "Nationality": "Argentina",
+        "Matches": "967",
         "Team_ID": "CHE"
     }
 
@@ -25,6 +26,7 @@ Content-Type: application/json
        "Name": "Erik Ten Hag",
        "Age": "54",
        "Nationality": "Netherlands",
+       "Matches": "967",
        "Team_ID": "MAN"
 }
 
@@ -48,6 +50,7 @@ Content-Type: application/json
         "Name": "Mauricio Pochettino",
         "Age": "51",
         "Nationality": "Argentina",
+        "Matches": "967",
         "Team_ID": "CHE"
     }
 
@@ -60,6 +63,7 @@ Content-Type: application/json
         "Name": "Mauricio Pochettino",
         "Age": "51",
         "Nationality": "Argentina",
+        "Matches": "967",
         "Team_ID": "CHE"
     }
 
