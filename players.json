@@ -1,0 +1,67 @@
+[
+    {
+        "Player_ID": "P001",
+        "Name": "Cole Palmer",
+        "Age" :  "21",
+        "Height": "182",
+        "Nationality": "England",
+        "Position": "Midfielder",
+        "Team_ID": " CHE"
+      },
+      
+    {
+      "Player_ID": "P002",
+      "Name": "Mason Mount",
+      "Age": 23,
+      "Height": 180,
+      "Nationality": "England",
+      "Position": "Midfielder",
+      "Team_ID": "CHE"
+    },
+    {
+      "Player_ID": "P003",
+      "Name": "Ruben Dias",
+      "Age": 25,
+      "Height": 187,
+      "Nationality": "Portugal",
+      "Position": "Defender",
+      "Team_ID": "MCI"
+    },
+    {
+      "Player_ID": "P004",
+      "Name": "Mohamed Salah",
+      "Age": 29,
+      "Height": 175,
+      "Nationality": "Egypt",
+      "Position": "Forward",
+      "Team_ID": "LIV"
+    },
+    {
+      "Player_ID": "P005",
+      "Name": "Christian Pulisic",
+      "Age": 23,
+      "Height": 176,
+      "Nationality": "United States",
+      "Position": "Forward",
+      "Team_ID": "CHE"
+    },
+    {
+      "Player_ID": "P006",
+      "Name": "Phil Foden",
+      "Age": 21,
+      "Height": 171,
+      "Nationality": "England",
+      "Position": "Midfielder",
+      "Team_ID": "MCI"
+    },
+    {
+      "Player_ID": "P007",
+      "Name": "Virgil van Dijk",
+      "Age": 30,
+      "Height": 193,
+      "Nationality": "Netherlands",
+      "Position": "Defender",
+      "Team_ID": "LIV"
+    }
+  ]
+  

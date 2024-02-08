@@ -1,0 +1,76 @@
+###
+GET http://localhost:3000/players
+
+###
+GET http://localhost:3000/players/P002
+
+####
+POST http://localhost:3000/players
+Content-Type: application/json
+
+{
+      "Player_ID": "P004",
+      "Name": "Mohamed Salah",
+      "Age": 29,
+      "Height": 175,
+      "Nationality": "Egypt",
+      "Position": "Forward",
+      "Team_ID": "LIV"
+}
+
+###
+PUT http://localhost:3000/players/P002
+Content-Type: application/json
+
+{
+      "Player_ID": "P002",
+      "Name": "Mason Mount",
+      "Age": 23,
+      "Height": 180,
+      "Nationality": "England",
+      "Position": "Midfielder",
+      "Team_ID": "CHE"
+}
+
+###
+DELETE http://localhost:3000/players/P002
+
+
+
+###
+GET https://.onrender.com/players
+
+###
+GET https://.onrender.com/players/P002
+
+###
+POST https://.onrender.com/players
+Content-Type: application/json
+
+{
+      "Player_ID": "P002",
+      "Name": "Mason Mount",
+      "Age": 23,
+      "Height": 180,
+      "Nationality": "England",
+      "Position": "Midfielder",
+      "Team_ID": "CHE"
+}
+
+
+###
+PUT https://.onrender.com/players/P002
+Content-Type: application/json
+
+{
+      "Player_ID": "P006",
+      "Name": "Phil Foden",
+      "Age": 21,
+      "Height": 171,
+      "Nationality": "England",
+      "Position": "Midfielder",
+      "Team_ID": "MCI"
+}
+
+###
+DELETE https://.onrender.com/players/P002

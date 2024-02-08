@@ -1,0 +1,70 @@
+###
+GET http://localhost:3000/teams
+
+###
+GET http://localhost:3000/teams/CHE
+
+
+###
+POST http://localhost:3000/teams 
+Content-Type: application/json
+
+{
+    "Team_ID": "CHE",
+    "Team_Name": "Chelsea",
+    "Venue": "Stamford Bridge",
+    "Location": "London",
+    "Founded_Year" : 1905,
+    "Coach_ID": "C001"
+}
+
+###
+PUT http://localhost:3000/teams
+Content-Type: application/json
+
+{
+    "Team_ID": "MAN",
+    "Team_Name": "Manchester United",
+    "Venue": "Old Trafford",
+    "Location": "Manchester",
+    "Founded_Year": 1878,
+    "Coach_ID": "C002"
+}
+
+###
+DELETE http://localhost:3000/teams
+
+###
+GET https://.onrender.com/teams
+
+###
+GET https://.onrender.com/teams/MAN
+
+###
+POST https://.onrender.com/teams
+Content-Type: application/json
+
+{
+    "Team_ID": "MAN",
+    "Team_Name": "Manchester United",
+    "Venue": "Old Trafford",
+    "Location": "Manchester",
+    "Founded_Year": 1878,
+    "Coach_ID": "C002"
+}
+
+###
+PUT https://.onrender.com/teams/CHE
+Content-Type: application/json
+
+{
+    "Team_ID": "MAN",
+    "Team_Name": "Manchester United",
+    "Venue": "Old Trafford",
+    "Location": "Manchester",
+    "Founded_Year": 1878,
+    "Coach_ID": "C002"
+}
+
+###
+DELETE https://.onrender.com/teams/CHE

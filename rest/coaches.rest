@@ -1,0 +1,67 @@
+###
+GET http://localhost:3000/coaches
+
+###
+GET http://localhost:3000/coaches/C001
+
+####
+POST http://localhost:3000/coaches
+Content-Type: application/json
+
+   {
+        "Coach_ID": "C001",
+        "Name": "Mauricio Pochettino",
+        "Age": "51",
+        "Nationality": "Argentina",
+        "Team_ID": "CHE"
+    }
+
+###
+PUT http://localhost:3000/coaches/C002
+Content-Type: application/json
+
+{
+       "Coach_ID": "C002",
+       "Name": "Erik Ten Hag",
+       "Age": "54",
+       "Nationality": "Netherlands",
+       "Team_ID": "MAN"
+}
+
+
+###
+DELETE http://localhost:3000/coaches/C002
+
+
+###
+GET https://.onrender.com/coaches
+
+###
+GET https://.onrender.com/coaches/C002
+
+###
+POST https://.onrender.com/coaches
+Content-Type: application/json
+
+    {
+        "Coach_ID": "C001",
+        "Name": "Mauricio Pochettino",
+        "Age": "51",
+        "Nationality": "Argentina",
+        "Team_ID": "CHE"
+    }
+
+###
+PUT https://.onrender.com/coaches/C002
+Content-Type: application/json
+
+    {
+        "Coach_ID": "C001",
+        "Name": "Mauricio Pochettino",
+        "Age": "51",
+        "Nationality": "Argentina",
+        "Team_ID": "CHE"
+    }
+
+###
+DELETE https://.onrender.com/coaches/C002
