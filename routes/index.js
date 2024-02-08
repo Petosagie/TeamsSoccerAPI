@@ -6,7 +6,7 @@ const swagger = require('./swagger');
 // Main router middle ware, index route
 router.get('/', (req, res) => {
     //#swagger.tags=['Welcome Message']
-    res.send( "<center><h1 style='color:blue; padding-top: 15rem; font-size:6rem'>Welcome, our TemSoccerAPI</h1></center>");
+    res.send( "<center><h1 style='color:blue; padding-top: 15rem; font-size:6rem'>Welcome, our TeamSoccerAPI</h1></center>");
 })
 
 router.use("/", require("./swagger"));  
