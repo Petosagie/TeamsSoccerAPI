@@ -38,20 +38,21 @@ const getTeamById = async (req, res) => {
 const createTeam = async (req, res) => {
   //#swagger.tags=["teams"]
   try {
-      const teamInfo = {
+    const teamInfo = {
       Team_Name: req.body.Team_Name,
       Coach_ID: req.body.Coach_ID,
       Venue: req.body.Venue,
       Location: req.body.Location,
-      Team_ID: req.body.Team_ID,
-      Founded_Year: req.body.Founded_Year,
+      Year_Founded: req.body.Year_Founded,
+      Team_ID: req.body.Team_ID
+
     };
     const newTeam = await Teams.create(teamInfo);
     res.status(204).json(newTeam);
   } catch (error) {
     // Log the detailed error information
     console.error("Error creating team:", error);
-    
+
     // Respond with a 400  error message
     res.status(400).json({
       error: "Error creating team. ",
@@ -63,8 +64,8 @@ const updateTeam = async (req, res) => {
   //#swagger.tags=["teams"]
   try {
     const teamId = req.params.Team_ID;
-      const teamInfo = {      
-      Team_ID: req.body.Team_ID,
+    const teamInfo = {
+      Team_ID: teamId,
       Team_Name: req.body.Team_Name,
       Venue: req.body.Venue,
       Location: req.body.Location,
@@ -72,7 +73,7 @@ const updateTeam = async (req, res) => {
       Coach_ID: req.body.Coach_ID
     };
     const updatedTeam = await Teams.replaceOne({ Team_ID: teamId }, teamInfo);
-    if(updatedTeam.modifiedCount === 0) {
+    if (updatedTeam.modifiedCount === 0) {
       return res.status(404).json({ error: "Team not found" });
     }
     res.status(204).json(updatedTeam);
@@ -97,7 +98,7 @@ const deleteTeam = async (req, res) => {
     }
     res.status(204).json(deletedTeam);
   } catch (error) {
-   
+
     console.error("Error deleting team:", error);
 
     // Respond with a 400 error message
