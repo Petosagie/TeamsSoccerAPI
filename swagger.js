@@ -2,10 +2,10 @@ const swaggerAutogen = require('swagger-autogen')();  //Week 2
 
 const doc = {
     info: {
-        title: "API Tests",
-        description: "API for NodeJS"
+        title: "TeamSoccerAPI",
+        description: "API for NodeJS (TeamSoccerAPI) Information on teams, players, coaches, and matches."
     },
-    host: "cse341-final-project-j17k.onrender.com",
+    host: "localhost:3000",
     schemes: ['https']
     };
 
