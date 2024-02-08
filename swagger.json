@@ -1,26 +1,30 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "TeamsSoccerAPI",
-    "description": "API ",
+    "title": "TeamSoccerAPI",
+    "description": "API for NodeJS (TeamSoccerAPI) Information on teams, players, coaches, and matches.",
     "version": "1.0.0"
   },
-  "host": "localhost:3000",
+  "host": "http://localhost:3000",
   "basePath": "/",
   "schemes": [
     "http"
   ],
   "paths": {
-    "/api-docs": {
+    "/": {
       "get": {
+        "tags": [
+          "Welcome Message"
+        ],
         "description": "",
         "responses": {
-          "default": {
-            "description": ""
+          "200": {
+            "description": "OK"
           }
         }
       }
     },
+    
     "/teams/": {
       "get": {
         "tags": [
@@ -52,6 +56,9 @@
                   "example": "any"
                 },
                 "Coach_ID": {
+                  "example": "any"
+                },
+                "Venue": {
                   "example": "any"
                 },
                 "Location": {
@@ -133,7 +140,7 @@
                 "Location": {
                   "example": "any"
                 },
-                "Founded_Year": {
+                "Year_Founded": {
                   "example": "any"
                 },
                 "Coach_ID": {
@@ -211,19 +218,19 @@
                 "Player_ID": {
                   "example": "any"
                 },
-                "Name": {
+                "Player_Name": {
                   "example": "any"
                 },
-                "Age": {
+                "Player_Age": {
                   "example": "any"
                 },
-                "Height": {
+                "Player_Height": {
                   "example": "any"
                 },
-                "Nationality": {
+                "Player_Nationality": {
                   "example": "any"
                 },
-                "Position": {
+                "Player_Position": {
                   "example": "any"
                 },
                 "Team_ID": {
@@ -287,22 +294,22 @@
             "schema": {
               "type": "object",
               "properties": {
-                "Name": {
+                "Player_Name": {
                   "example": "any"
                 },
-                "Position": {
+                "Player_Age": {
                   "example": "any"
                 },
-                "Age": {
+                "Player_Height": {
                   "example": "any"
                 },
-                "Nationality": {
+                "Player_Nationality": {
+                  "example": "any"
+                },
+                "Player_Position": {
                   "example": "any"
                 },
                 "Team_ID": {
-                  "example": "any"
-                },
-                "Height": {
                   "example": "any"
                 }
               }
@@ -398,19 +405,19 @@
             "schema": {
               "type": "object",
               "properties": {
-                "Name": {
-                  "example": "any"
-                },
                 "Coach_ID": {
                   "example": "any"
                 },
-                "Age": {
+                "Coach_Names": {
                   "example": "any"
                 },
-                "Nationality": {
+                "Coach_Age": {
                   "example": "any"
                 },
-                "Matches": {
+                "Coach_Nationality": {
+                  "example": "any"
+                },
+                "NO_Matches": {
                   "example": "any"
                 },
                 "Team_ID": {
@@ -432,6 +439,9 @@
     },
     "/coaches/{Coach_ID}": {
       "get": {
+        "tags": [
+          "coaches"
+        ],
         "description": "",
         "parameters": [
           {
@@ -442,8 +452,14 @@
           }
         ],
         "responses": {
-          "default": {
-            "description": ""
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
           }
         }
       },
@@ -465,16 +481,16 @@
             "schema": {
               "type": "object",
               "properties": {
-                "Name": {
+                "Coach_Names": {
                   "example": "any"
                 },
-                "Age": {
+                "Coach_Age": {
                   "example": "any"
                 },
-                "Nationality": {
+                "Coach_Nationality": {
                   "example": "any"
                 },
-                "Matches": {
+                "NO_Matches": {
                   "example": "any"
                 },
                 "Team_ID": {
@@ -552,7 +568,7 @@
                 "Match_ID": {
                   "example": "any"
                 },
-                "Date": {
+                "Match_Date": {
                   "example": "any"
                 },
                 "Teams_Involved": {
