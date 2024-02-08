@@ -1,15 +1,14 @@
-// Import the Mongoose Library
+// Import the Mongoose 
 const express = require("express");
-
 const mongoose = require("mongoose");
-// Import the matches model (create a models/matches.js file)
 const Matches = require("../models/matches");
+
 
 const getAllMatches = async (req, res) => {
   //#swagger.tags=["matches"]
   try {
-    const matches = await Matches.find();
-    res.status(200).json(matches);
+    const matchInfo = await Matches.find();
+    res.status(200).json(matchInfo);
   } catch (error) {
     console.error("Error fetching matches:", error);
    
@@ -21,11 +20,11 @@ const getMatchById = async (req, res) => {
   //#swagger.tags=["matches"]
   try {
     const matchId = req.params.Match_ID;
-    const match = await Matches.findOne({ Match_ID: matchId });
-    if (!match) {
+    const matchInfo = await Matches.findOne({ Match_ID: matchId });
+    if (!matchInfo) {
       return res.status(404).json({ error: "Match not found" });
     }
-    res.status(200).json(match);
+    res.status(200).json(matchInfo);
   } catch (error) {
     console.error("Error fetching match:", error);
     
@@ -37,9 +36,9 @@ const getMatchesByTeamId = async (req, res) => {
   //#swagger.tags=["matches"]
   try {
     const teamId = req.params.Team_ID;
-    const match = await Matches.find({ 'Teams_Involved': { '$in': teamId } });
+    const matchInfo = await Matches.find({ 'Teams_Involved': { '$in': teamId } });
 
-    res.status(200).json(match);
+    res.status(200).json(matchInfo);
   } catch (error) {
     console.error("Error fetching match:", error);
 
@@ -50,11 +49,10 @@ const getMatchesByTeamId = async (req, res) => {
 const createMatch = async (req, res) => {
   //#swagger.tags=["matches"]
   try {
-    const matchData = {
+    const matchInfo = {
       Match_ID: req.body.Match_ID,
-      Date: new Date(req.body.Date), 
+      Match_Date: new Date(req.body.Match_Date), 
       Teams_Involved: req.body.Teams_Involved,
-
       Score: req.body.Score,
       Stadium: req.body.Stadium,
       Goals: req.body.Goals.map((goal) => ({
@@ -62,7 +60,7 @@ const createMatch = async (req, res) => {
         Time: parseInt(goal.Time), 
       })),
     };
-    const newMatch = await Matches.create(matchData);
+    const newMatch = await Matches.create(matchInfo);
     res.status(204).json(newMatch); 
   } catch (error) {
     console.error("Error creating match:", error);
@@ -77,7 +75,7 @@ const updateMatch = async (req, res) => {
   //#swagger.tags=["matches"]
   try {
     const matchId = req.params.Match_ID; 
-    const matchData = {
+    const matchInfo = {
       Match_ID: matchId,
       Date: new Date(req.body.Date),
       Teams_Involved: req.body.Teams_Involved,
@@ -89,7 +87,7 @@ const updateMatch = async (req, res) => {
         Time: parseInt(goal.Time)
       })),
     };
-    const updatedMatch = await Matches.replaceOne({ Match_ID: matchId }, matchData);
+    const updatedMatch = await Matches.replaceOne({ Match_ID: matchId }, matchInfo);
     if (updatedMatch.modifiedCount === 0) {
       return res.status(404).json({ error: "Match not found" });
     }

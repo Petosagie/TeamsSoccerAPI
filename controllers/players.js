@@ -1,13 +1,12 @@
-// Import the Mongoose Library
+// Import the Mongoose 
 const mongoose = require("mongoose");
-// Import the players model (create a models/players.js file)
 const Players = require("../models/players");
 
 const getAllPlayers = async (req, res) => {
   // #swagger.tags=["players"]
   try {
-    const allPlayers = await Players.find();
-    res.status(200).json(allPlayers);
+    const PlayersInfo = await Players.find();
+    res.status(200).json(PlayersInfo);
   } catch (error) {
     console.error("Error fetching playeres", error);
     
@@ -20,14 +19,14 @@ const getPlayerById = async (req, res) => {
   try {
     const playerId = req.params.Player_ID;
 
-    const onePlayer = await Players.findOne({ Player_ID: playerId });
+    const singlePlayer = await Players.findOne({ Player_ID: playerId });
 
-    if (!onePlayer) {
+    if (!singlePlayer) {
       // If no player is found, respond with a 404 Not Found status
       return res.status(404).json({ error: "Player not found" });
     }
-    // Respond with a 200 status and the player in the response body
-    res.status(200).json(onePlayer);
+    // Respond with a 200 status to get single player
+    res.status(200).json(singlePlayer);
   } catch (error) {
     console.error("Error fetching player by ID:", error);
 
@@ -57,18 +56,18 @@ const createPlayer = async (req, res) => {
   //#swagger.tags=["players"]
   try {
     // Extract player details from the request body
-    const player = {
+    const playerInfo = {
       Player_ID: req.body.Player_ID,
-      Name: req.body.Name,
-      Age: req.body.Age,
-      Height: req.body.Height,
-      Nationality: req.body.Nationality,
-      Position: req.body.Position,
+      Player_Name: req.body.Player_Name,
+      Player_Age: req.body.Player_Age,
+      Player_Height: req.body.Player_Height,
+      Player_Nationality: req.body.Player_Nationality,
+      Player_Position: req.body.Player_Position,
       Team_ID: req.body.Team_ID,
     };
-    const newPlayer = await Players.create(player);
+    const newPlayer = await Players.create(playerInfo);
     res.status(204).json(newPlayer);
-  } catch (error) {
+  } catch (error) { 
        
     console.error("Error creating player:", error);
     // Respond with a 400  error message
@@ -83,17 +82,17 @@ const updatePlayer = async (req, res) => {
   try {
     const playerId = req.params.Player_ID;
     // Extract player details from the request body
-    const player = {
-      Name: req.body.Name,
-      Position: req.body.Position,
+    const playerInfo = {
       Player_ID: playerId,
-      Age: req.body.Age,
-      Nationality: req.body.Nationality,
+      Player_Name: req.body.Player_Name,
+      Player_Age: req.body.Player_Age,
+      Player_Height: req.body.Player_Height,
+      Player_Nationality: req.body.Player_Nationality,
+      Player_Position: req.body.Player_Position,
       Team_ID: req.body.Team_ID,
-      Height: req.body.Height,
     };
    
-    const updatePlayer = await Players.replaceOne({ Player_ID: playerId }, player);
+    const updatePlayer = await Players.replaceOne({ Player_ID: playerId }, playerInfo);
     if(updatePlayer.modifiedCount === 0) {
       return res.status(404).json({ error: "Player not found" });
     }

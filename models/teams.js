@@ -9,12 +9,9 @@ const teamSchema = new mongoose.Schema({
   },
   Team_Name: {
     type: String,
-    message: "Team Name must be a non-empty string with a maximum length of 25 characters.",
+    message: "Team Name must not be a empty with not more than 25 characters.",
   },
-  Name: {
-    type: String,
-    message: "Name must be a string with no more than 25 characters.",
-  },
+
   Venue: {
     type: String,
     message: "Venue must be a string with a maximum length of 25 characters.",
@@ -24,9 +21,9 @@ const teamSchema = new mongoose.Schema({
     type: String,
     message: "Location must be a string with no more than 25 characters.",
   },
-  Founded_Year: {
+  Year_Founded: {
     type: Number,
-    message: "Founded Year must be a string of exactly 4 integer digits, like '1960'.",
+    message: "Year founded  must be a string of exactly 4 integer digits, like '1960'.",
   },
   Coach_ID: {
     type: String,

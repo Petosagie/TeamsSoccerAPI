@@ -7,23 +7,23 @@ const playerSchema = new mongoose.Schema({
     type: String,
     message: "Ensure that the value is a string starting with 'C' followed by exactly 3 digits",
   },
-  Name: {
+  Player_Name: {
     type: String,
     message: "Name must be a string with no more than 25 characters.",
   },
-  Age: {
+  Player_Age: {
     type: Number,
     message: "Age must be an integer.",
   },
-  Height: {
+  Player_Height: {
     type: Number,
     message: "Nationality must be a string with no more than 25 characters.",
   },
-  Nationality: {
+  Player_Nationality: {
     type: String,
     message: 'Height must be a string in the format of exactly three-digit numbers',
   },
-  Position: {
+  Player_Position: {
     type: String,
     message: "Position must be a string with no more than 25 characters.",
   },

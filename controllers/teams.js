@@ -1,13 +1,12 @@
 // Import the Mongoose Library
 const mongoose = require("mongoose");
-// Import the teams model (create a models/teams.js file)
 const Teams = require("../models/teams");
 
 const getAllTeams = async (req, res) => {
   // #swagger.tags=["teams"]
   try {
-    const allTeams = await Teams.find();
-    res.status(200).json(allTeams);
+    const TeamsInfo = await Teams.find();
+    res.status(200).json(TeamsInfo);
   } catch (error) {
     console.error("Error fetching teams", error);
 
@@ -19,19 +18,19 @@ const getTeamById = async (req, res) => {
   //#swagger.tags=["teams"]
   try {
     const teamId = req.params.Team_ID;
-    const oneTeam = await Teams.findOne({ Team_ID: teamId });
+    const singleTeam = await Teams.findOne({ Team_ID: teamId });
 
     // Check if the Team is in the database
-    if (!oneTeam) {
+    if (!singleTeam) {
       return res.status(404).json({ error: "Team not found" });
     }
 
-    res.status(200).json(oneTeam);
+    res.status(200).json(singleTeam);
   } catch (error) {
-    console.error("Error fetching team, make sure you typed a correct ID");
+    console.error("Error fetching team, make sure you enter a correct ID");
 
     res.status(400).json({
-      error: "Error fetching team, make sure you typed a correct ID",
+      error: "Error fetching team, make sure you enter a correct ID",
     });
   }
 };
@@ -39,15 +38,15 @@ const getTeamById = async (req, res) => {
 const createTeam = async (req, res) => {
   //#swagger.tags=["teams"]
   try {
-    // Extract team details from the request body
-    const team = {
+      const teamInfo = {
       Team_Name: req.body.Team_Name,
       Coach_ID: req.body.Coach_ID,
+      Venue: req.body.Venue,
       Location: req.body.Location,
       Team_ID: req.body.Team_ID,
       Founded_Year: req.body.Founded_Year,
     };
-    const newTeam = await Teams.create(team);
+    const newTeam = await Teams.create(teamInfo);
     res.status(204).json(newTeam);
   } catch (error) {
     // Log the detailed error information
@@ -64,16 +63,15 @@ const updateTeam = async (req, res) => {
   //#swagger.tags=["teams"]
   try {
     const teamId = req.params.Team_ID;
-    // Extract team details from the request body
-    const team = {      
+      const teamInfo = {      
       Team_ID: req.body.Team_ID,
       Team_Name: req.body.Team_Name,
       Venue: req.body.Venue,
       Location: req.body.Location,
-      Founded_Year: req.body.Founded_Year,
+      Year_Founded: req.body.Year_Founded,
       Coach_ID: req.body.Coach_ID
     };
-    const updatedTeam = await Teams.replaceOne({ Team_ID: teamId }, team);
+    const updatedTeam = await Teams.replaceOne({ Team_ID: teamId }, teamInfo);
     if(updatedTeam.modifiedCount === 0) {
       return res.status(404).json({ error: "Team not found" });
     }
@@ -99,7 +97,7 @@ const deleteTeam = async (req, res) => {
     }
     res.status(204).json(deletedTeam);
   } catch (error) {
-    // Log the detailed error information
+   
     console.error("Error deleting team:", error);
 
     // Respond with a 400 error message

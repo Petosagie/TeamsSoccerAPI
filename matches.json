@@ -1,7 +1,7 @@
 [
 {
     "Match_ID": "M001",
-    "Date": "2024-02-01",
+    "Match_Date": "2024-02-01",
     "Score": "2-0",
     "Stadium": "Standford Bridge",
     "Goals":  [
@@ -12,7 +12,7 @@
     },
     {
       "Match_ID": "M002",
-      "Date": "2024-02-05",
+      "Match_Date": "2024-02-05",
       "Score": "1-1",
       "Stadium": "Anfield",
       "Goals": [
@@ -23,7 +23,7 @@
     },
     {
       "Match_ID": "M003",
-      "Date": "2024-02-10",
+      "Match_Date": "2024-02-10",
       "Score": "3-2",
       "Stadium": "Etihad Stadium",
       "Goals": [

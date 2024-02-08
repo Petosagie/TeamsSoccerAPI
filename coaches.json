@@ -1,34 +1,34 @@
 [
     {
         "Coach_ID": "C001",
-        "Name": "Mauricio Pochettino",
-        "Age": "51",
-        "Nationality": "Argentina",
-        "Matches": "967",
+        "Coach_Name": "Mauricio Pochettino",
+        "Coach_Age": "51",
+        "Coach_Nationality": "Argentina",
+        "No_Matches": "967",
         "Team_ID": "CHE"
     },
     {
         "Coach_ID": "C002",
-       "Name": "Erik Ten Hag",
-       "Age": "54",
-       "Nationality": "Netherlands",
-       "Matches": "578",
+       "Coach_Name": "Erik Ten Hag",
+       "Coach_Age": "54",
+       "Coach_Nationality": "Netherlands",
+       "No_Matches": "578",
        "Team_ID": "MAN"
      },
     {
         "Coach_ID": "C003",
-        "Name": "Jurgen Klopp",
-        "Age": 54,
-        "Nationality": "Germany",
-        "Matches": "483",
+        "Coach_Name": "Jurgen Klopp",
+        "Coach_Age": 54,
+        "Coach_Nationality": "Germany",
+        "No_Matches": "483",
         "Team_ID": "LIV"
     },
     {
         "Coach_ID": "C004",
-        "Name": "Pep Guardiola",
-        "Age": 51,
-        "Nationality": "Spain",
-        "Matches": "345",
+        "Coach_Name": "Pep Guardiola",
+        "Coach_Age": 51,
+        "Coach_Nationality": "Spain",
+        "No_Matches": "345",
         "Team_ID": "MCI"
     }
 ]

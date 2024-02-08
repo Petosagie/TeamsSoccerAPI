@@ -1,6 +1,5 @@
 // Import the Mongoose 
 const mongoose = require("mongoose");
-// Import the Coaches model (create a models/coaches.js file)
 const Coaches = require("../models/coaches");
 
 
@@ -39,12 +38,13 @@ const createCoach = async (req, res) => {
   try {
     // Extract coach details from the request body
     const coach = {
-      Full_Names: req.body.Full_Names,
       Coach_ID: req.body.Coach_ID,
-      Age: req.body.Age,
-      Nationality: req.body.Nationality,
+      Coach_Names: req.body.Coach_Names,
+      Coach_Age: req.body.Coach_Age,
+      Coach_Nationality: req.body.Coach_Nationality,
       NO_Matches: req.body.NO_Matches,
       Team_ID: req.body.Team_ID,
+
     };
     const newCoach = await Coaches.create(coach);
     res.status(204).json(newCoach);
@@ -66,9 +66,9 @@ const updateCoach = async (req, res) => {
     // Extract coach details from the request body
     const coach = {
       Coach_ID: coachId,
-      Full_Names: req.body.Full_Names,
-      Age: req.body.Age,
-      Nationality: req.body.Nationality,
+      Coach_Names: req.body.Coach_Names,
+      Coach_Age: req.body.Coach_Age,
+      Coach_Nationality: req.body.Coach_Nationality,
       NO_Matches: req.body.NO_Matches,
       Team_ID: req.body.Team_ID,
 

@@ -7,7 +7,7 @@ const matchSchema = new mongoose.Schema({
     type: String,
     message: 'Match_ID must be a string starting with "M" followed by exactly 3 digits, like "M012".',
   },
-  Date: {
+  Match_Date: {
     type: Date,
     message: "Date must be a date.",
   },

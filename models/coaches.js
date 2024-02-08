@@ -7,15 +7,15 @@ const coachSchema = new mongoose.Schema({
     type: String,
     message: "String starting with 'C' followed by exactly 3 digits",
   },
-  Full_Names: {
+  Coach_Names: {
     type: String,
-    message: "Full_Names must be a string of not not more than 25 characters.",
+    message: "Name of coach must be a string of not not more than 25 characters.",
   },
-  Age: {
+  Coach_Age: {
     type: Number,
     message: "Age should be an integer.",
   },
-  Nationality: {
+  Coach_Nationality: {
     type: String,
     message: "Nationality should be a string of not more than 25 characters.",
   },
