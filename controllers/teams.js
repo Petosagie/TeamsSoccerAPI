@@ -53,6 +53,11 @@ const getTeamById = async (req, res) => {
 const createTeam = async (req, res) => {
   //#swagger.tags=["teams"]
   try {
+    const teamExists = await Teams.findOne({ Team_ID: req.body.Team_ID });
+    if (teamExists) {
+      return res.status(400).json({ error: "Team with the same Team_ID already exists." });
+    }
+
     const teamInfo = {
       Team_Name: req.body.Team_Name,
       Coach_ID: req.body.Coach_ID,
@@ -60,8 +65,8 @@ const createTeam = async (req, res) => {
       Location: req.body.Location,
       Year_Founded: req.body.Year_Founded,
       Team_ID: req.body.Team_ID
-
     };
+    
     const newTeam = await Teams.create(teamInfo);
     res.status(204).json(newTeam);
   } catch (error) {
@@ -74,6 +79,7 @@ const createTeam = async (req, res) => {
     });
   }
 };
+
 
 const updateTeam = async (req, res) => {
   //#swagger.tags=["teams"]

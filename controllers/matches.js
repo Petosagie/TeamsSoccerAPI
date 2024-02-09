@@ -63,6 +63,13 @@ const createMatch = async (req, res) => {
         Time: parseInt(goal.Time), 
       })),
     };
+    
+    // Check if a match with the same Match_ID already exists
+    const existingMatch = await Matches.findOne({ Match_ID: matchInfo.Match_ID });
+    if (existingMatch) {
+      return res.status(400).json({ error: "A match with the same Match_ID already exists." });
+    }
+    
     const newMatch = await Matches.create(matchInfo);
     res.status(204).json(newMatch); 
   } catch (error) {
@@ -73,6 +80,7 @@ const createMatch = async (req, res) => {
     });
   }
 };
+
 
 const updateMatch = async (req, res) => {
   //#swagger.tags=["matches"]

@@ -96,10 +96,11 @@ const createPlayer = async (req, res) => {
       Team_ID: req.body.Team_ID,
     };
 
-    // Check if position is empty or blank
-    if (!playerInfo.Player_Position) {
-      // Respond with a 400 Bad Request status and an appropriate error message
-      return res.status(400).json({ error: "Player position not provided" });
+    // Check if a player with the same Player_ID already exists
+    const existingPlayer = await Players.findOne({ Player_ID: playerInfo.Player_ID });
+    if (existingPlayer) {
+      // Respond with a 409 Conflict status and an appropriate error message
+      return res.status(409).json({ error: "Player with the same ID already exists" });
     }
 
     const newPlayer = await Players.create(playerInfo);
