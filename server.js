@@ -24,10 +24,7 @@ app.use((req, res, next) => {
 
 // Start server
 mongoose
-  .connect(process.env.MONGODB_URI, {
-    // useNewUrlParser: true,
-    // useUnifiedTopology: true,
-  })
+  .connect(process.env.MONGODB_URI)
   .then(() => {
     if (process.env.MONGODB_URI !== 'test') {
       app.listen(port, () => {
