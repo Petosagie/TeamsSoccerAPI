@@ -44,13 +44,13 @@ DELETE http://localhost:3000/matches/M092
 
 
 ###
-GET https://.onrender.com/matches
+GET https://teamsoccerapi.onrender.com/matches
 
 ###
-GET https://.onrender.com/matches/M002
+GET https://teamsoccerapi.onrender.com/matches/M002
 
 ###
-POST https://.onrender.com/matches
+POST https://teamsoccerapi.onrender.com/matches
 Content-Type: application/json
 
 {
@@ -69,7 +69,7 @@ Content-Type: application/json
 
 
 ###
-PUT https://.onrender.com/matches/M099
+PUT https://teamsoccerapi.onrender.com/matches/M099
 Content-Type: application/json
 
 {
@@ -85,4 +85,4 @@ Content-Type: application/json
 }
 
 ###
-DELETE https://.onrender.com/matches/M099
+DELETE https://teamsoccerapi.onrender.com/matches/M099

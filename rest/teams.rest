@@ -35,13 +35,13 @@ Content-Type: application/json
 DELETE http://localhost:3000/teams
 
 ###
-GET https://.onrender.com/teams
+GET https://teamsoccerapi.onrender.com/teams
 
 ###
-GET https://.onrender.com/teams/MAN
+GET https://teamsoccerapi.onrender.com/teams/MAN
 
 ###
-POST https://.onrender.com/teams
+POST https://teamsoccerapi.onrender.com/teams
 Content-Type: application/json
 
 {
@@ -54,7 +54,7 @@ Content-Type: application/json
 }
 
 ###
-PUT https://.onrender.com/teams/CHE
+PUT https://teamsoccerapi.onrender.com/teams/CHE
 Content-Type: application/json
 
 {
@@ -67,4 +67,4 @@ Content-Type: application/json
 }
 
 ###
-DELETE https://.onrender.com/teams/CHE
+DELETE https://teamsoccerapi.onrender.com/teams/CHE

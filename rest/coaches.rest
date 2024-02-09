@@ -36,13 +36,13 @@ DELETE http://localhost:3000/coaches/C002
 
 
 ###
-GET https://.onrender.com/coaches
+GET https://teamsoccerapi.onrender.com/coaches
 
 ###
-GET https://.onrender.com/coaches/C002
+GET https://teamsoccerapi.onrender.com/coaches/C002
 
 ###
-POST https://.onrender.com/coaches
+POST https://teamsoccerapi.onrender.com/coaches
 Content-Type: application/json
 
     {
@@ -55,7 +55,7 @@ Content-Type: application/json
     }
 
 ###
-PUT https://.onrender.com/coaches/C002
+PUT https://teamsoccerapi.onrender.com/coaches/C002
 Content-Type: application/json
 
     {
@@ -68,4 +68,4 @@ Content-Type: application/json
     }
 
 ###
-DELETE https://teamssoccerapi.onrender.com/coaches/C002
+DELETE https://teamsoccerapi.onrender.com/coaches/C002

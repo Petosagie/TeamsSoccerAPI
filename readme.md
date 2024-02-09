@@ -1,4 +1,4 @@
-# CSE 341 Final Project (TeamsSoccerAPI)
+# CSE 341 Final Project (TeamSoccerAPI)
 
 ## General Info
 - THOMPSON NKOMO 

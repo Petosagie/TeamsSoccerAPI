@@ -2,7 +2,13 @@
 GET http://localhost:3000/players
 
 ###
-GET http://localhost:3000/players/P002
+GET http://localhost:3000/Players/P002
+
+###
+GET http://localhost:3000/Players/P004
+
+###
+GET http://localhost:3000/players/Position/Midfielder
 
 ####
 POST http://localhost:3000/players
@@ -38,13 +44,16 @@ DELETE http://localhost:3000/players/P002
 
 
 ###
-GET https://.onrender.com/players
+GET https://teamsoccerapi.onrender.com/players
 
 ###
-GET https://.onrender.com/players/P002
+GET https://teamsoccerapi.onrender.com/players/P002
 
 ###
-POST https://.onrender.com/players
+GET https://teamsoccerapi.onrender.com/players/
+
+###
+POST https://teamsoccerapi.onrender.com/players/Midfielder
 Content-Type: application/json
 
 {
@@ -59,7 +68,7 @@ Content-Type: application/json
 
 
 ###
-PUT https://.onrender.com/players/P002
+PUT https://teamsoccerapi.onrender.com/players/P002
 Content-Type: application/json
 
 {
@@ -73,4 +82,4 @@ Content-Type: application/json
 }
 
 ###
-DELETE https://.onrender.com/players/P002
+DELETE https://teamsoccerapi.onrender.com/players/P002
