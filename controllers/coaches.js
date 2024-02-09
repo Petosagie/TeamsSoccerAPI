@@ -62,20 +62,28 @@ const createCoach = async (req, res) => {
       Coach_Nationality: req.body.Coach_Nationality,
       NO_Matches: req.body.NO_Matches,
       Team_ID: req.body.Team_ID,
-
     };
+
+    // Check if a coach with the same Coach_ID already exists
+    const existingCoach = await Coaches.findOne({ Coach_ID: coach.Coach_ID });
+
+    if (existingCoach) {
+      // If a coach with the same Coach_ID exists, return an error
+      return res.status(400).json({ error: "Coach with the same ID already exists." });
+    }
+
+    // If no coach with the same Coach_ID exists, create a new coach
     const newCoach = await Coaches.create(coach);
     res.status(204).json(newCoach);
   } catch (error) {
     // Log the detailed error information
     console.error("Error creating coach:", error);
     // Respond with a 400 which indicate a bad request 
-    res.status(400).json({
+    res.status(500).json({
       error: "Error creating coach. Check the server logs for more details.",
     });
   }
 };
-
 
 const updateCoach = async (req, res) => {
   //#swagger.tags=["coaches"]
