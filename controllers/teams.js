@@ -6,18 +6,32 @@ const getAllTeams = async (req, res) => {
   // #swagger.tags=["teams"]
   try {
     const TeamsInfo = await Teams.find();
+
+    if (!TeamsInfo || TeamsInfo.length === 0) {
+      // If no teams are found, respond with a 404 Not Found status
+      return res.status(404).json({ error: "No teams found" });
+    }
+
     res.status(200).json(TeamsInfo);
   } catch (error) {
     console.error("Error fetching teams", error);
 
-    res.status(400).send("Error fetching teames");
+    // If there is a server error, respond with a 500 Internal Server Error status
+    res.status(500).send("Internal Server Error");
   }
 };
+
 
 const getTeamById = async (req, res) => {
   //#swagger.tags=["teams"]
   try {
     const teamId = req.params.Team_ID;
+    
+    // Check if the Team ID is empty or blank
+    if (!teamId) {
+      return res.status(400).json({ error: "Team ID is required" });
+    }
+    
     const singleTeam = await Teams.findOne({ Team_ID: teamId });
 
     // Check if the Team is in the database
@@ -25,12 +39,13 @@ const getTeamById = async (req, res) => {
       return res.status(404).json({ error: "Team not found" });
     }
 
+    // Return the team details if found
     res.status(200).json(singleTeam);
   } catch (error) {
-    console.error("Error fetching team, make sure you enter a correct ID");
-
-    res.status(400).json({
-      error: "Error fetching team, make sure you enter a correct ID",
+    console.error("Error fetching team:", error);
+    // If there's an internal server error, return 500 status with an error message
+    res.status(500).json({
+      error: "Internal server error",
     });
   }
 };
@@ -73,16 +88,16 @@ const updateTeam = async (req, res) => {
       Coach_ID: req.body.Coach_ID
     };
     const updatedTeam = await Teams.replaceOne({ Team_ID: teamId }, teamInfo);
+    
     if (updatedTeam.modifiedCount === 0) {
       return res.status(404).json({ error: "Team not found" });
     }
-    res.status(204).json(updatedTeam);
+    
+    res.status(200).json(updatedTeam); 
   } catch (error) {
-    // Log the detailed error information
     console.error("Error updating team:", error);
-
-    // Respond with a 400 error message
-    res.status(400).json({
+    
+    res.status(500).json({ 
       error: "Error updating team.",
     });
   }
@@ -93,16 +108,16 @@ const deleteTeam = async (req, res) => {
   try {
     const teamId = req.params.Team_ID;
     const deletedTeam = await Teams.deleteOne({ Team_ID: teamId });
+    
     if (deletedTeam.deletedCount === 0) {
       return res.status(404).json({ error: "Team not found" });
     }
-    res.status(204).json(deletedTeam);
+    
+    res.status(204).json(deletedTeam); 
   } catch (error) {
-
     console.error("Error deleting team:", error);
-
-    // Respond with a 400 error message
-    res.status(400).json({
+    
+    res.status(500).json({ 
       error: "Error deleting team.",
     });
   }

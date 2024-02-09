@@ -7,11 +7,17 @@ const getAllCoaches = async (req, res) => {
   // #swagger.tags=["coaches"]
   try {
     const allCoaches = await Coaches.find({});
+    
+    if (!allCoaches || allCoaches.length === 0) {
+      // If no coaches are found, respond with a 404 Not Found status
+      return res.status(404).json({ error: "No coaches found" });
+    }
+    
     res.status(200).json(allCoaches);
   } catch (error) {
     console.error("Error fetching coaches", error);
-
-    res.status(500).send("Error fetching coaches");
+    
+    res.status(500).json({ error: "Internal Server Error" });
   }
 };
 
@@ -20,18 +26,30 @@ const getSingleCoach = async (req, res) => {
   //#swagger.tags=["coaches"]
   try {
     const coachId = req.params.Coach_ID;
+
+    if (!coachId) {
+      // Check if coachId is empty or blank
+      return res.status(400).json({ error: "Coach ID not provided" });
+    }
+
     const singleCoach = await Coaches.findOne({ Coach_ID: coachId });
+
     if (!singleCoach) {
+      // If coach with the given ID is not found, return 404 status
       return res.status(404).json({ error: "Coach not found" });
     }
+
+    // If coach is found, return 200 status with coach data
     res.status(200).json(singleCoach);
   } catch (error) {
-    console.error("Error fetching coach, make sure you typed a correct ID");
-    res.status(400).json({
-      error: "Error fetching coach, make sure you typed a correct ID",
+    // If there is an error during fetching coach, return 500 status
+    console.error("Error fetching coach, make sure you typed a correct ID", error);
+    res.status(500).json({
+      error: "Error fetching coach, please try again later",
     });
   }
 };
+
 
 const createCoach = async (req, res) => {
   //#swagger.tags=["coaches"]
@@ -71,45 +89,62 @@ const updateCoach = async (req, res) => {
       Coach_Nationality: req.body.Coach_Nationality,
       NO_Matches: req.body.NO_Matches,
       Team_ID: req.body.Team_ID,
-
     };
-    await Coaches.validate(coach);
+
+    // Check if coachId is empty or blank
+    if (!coachId) {
+      return res.status(400).json({ error: "Coach ID not provided" });
+    }
+
     const updatedCoach = await Coaches.replaceOne({ Coach_ID: coachId }, coach);
 
     if (updatedCoach.modifiedCount === 0) {
+      // If no coach was updated, respond with a 404 Not Found status
       return res.status(404).json({ error: "Coach not found" });
     }
+    // Respond with a 204 No Content status as the coach was successfully updated
     res.status(204).json(updatedCoach);
   } catch (error) {
-
     // Log the detailed error information
-    console.error("Error updating coach:", error)
+    console.error("Error updating coach:", error);
 
-    // Respond with a 400 which indicate a bad request 
-    res.status(400).json({
-      error: "Error updating coach. Check the server logs for more details.",
+    // Respond with a 500 Internal Server Error status
+    res.status(500).json({
+      error: "Internal Server Error. Please try again later.",
     });
   }
 };
+
 const deleteCoach = async (req, res) => {
   //#swagger.tags=["coaches"]
   try {
     const coachId = req.params.Coach_ID;
+    
+    // Check if coachId is empty or blank
+    if (!coachId) {
+      return res.status(400).json({ error: "Coach ID not provided" });
+    }
+
     const deletedCoach = await Coaches.deleteOne({ Coach_ID: coachId });
+
+    // Check if coach is not found
     if (deletedCoach.deletedCount === 0) {
       return res.status(404).json({ error: "Coach not found" });
     }
+
+    // Successfully deleted
     res.status(204).json(deletedCoach);
   } catch (error) {
     // Log the detailed error information
     console.error("Error deleting coach:", error);
 
-    // Respond with a 400 which indicate a bad request 
-    res.status(400).json({
+    // Respond with a 500 Internal Server Error
+    res.status(500).json({
       error: "Error deleting coach. Check the server logs for more details.",
     });
   }
 };
+
 
 module.exports = {
   getAllCoaches,
