@@ -9,16 +9,18 @@ POST http://localhost:3000/matches
 Content-Type: application/json
 
 {
-  "Match_ID": "M001",
-    "Date": "2024-02-08",
-    "Score": "2-0",
-    "Stadium": "Standford Bridge",
-    "Goals":  [
-        { "Player_ID": "P003", "Time": "30" },
-        { "Player_ID": "P004", "Time": "75" }
-            ],
-     "Teams_Involved": ["CHE", "MAN"]
-    },
+  "Match_ID": "M011",
+  "Match_Date": "2024-02-01",
+  "Score": "2-0",
+  "Stadium": "Standford Bridge",
+  "Goals":  [
+      { "Player_ID": "P003", 
+        "Time": "30" },
+      { "Player_ID": "P004", 
+        "Time": "75" }
+  ],
+  "Teams_Involved": [ "CHE", "MAN" ]
+}
   
 
 ###
@@ -35,7 +37,6 @@ Content-Type: application/json
         { "Player_ID": "P004", "Time": "75" }
             ],
      "Teams_Involved": ["CHE", "MAN"]
-    
 }
 
 ###
@@ -54,8 +55,8 @@ POST https://teamsoccerapi.onrender.com/matches
 Content-Type: application/json
 
 {
-  "Match_ID": "M001",
-    "Date": "2024-02-08",
+    "Match_ID": "M081",
+    "Date": "2024-02-01",
     "Score": "2-0",
     "Stadium": "Standford Bridge",
     "Goals":  [
@@ -63,7 +64,6 @@ Content-Type: application/json
         { "Player_ID": "P004", "Time": "75" }
             ],
      "Teams_Involved": ["CHE", "MAN"]
-    
 }
 
 

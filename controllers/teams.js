@@ -59,16 +59,17 @@ const createTeam = async (req, res) => {
     }
 
     const teamInfo = {
+      Team_ID: req.body.Team_ID,
       Team_Name: req.body.Team_Name,
-      Coach_ID: req.body.Coach_ID,
       Venue: req.body.Venue,
       Location: req.body.Location,
       Year_Founded: req.body.Year_Founded,
-      Team_ID: req.body.Team_ID
+      Coach_ID: req.body.Coach_ID
     };
     
     const newTeam = await Teams.create(teamInfo);
     res.status(204).json(newTeam);
+    console.log(newTeam);
   } catch (error) {
     // Log the detailed error information
     console.error("Error creating team:", error);

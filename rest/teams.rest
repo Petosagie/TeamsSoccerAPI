@@ -14,7 +14,7 @@ Content-Type: application/json
     "Team_Name": "Chelsea",
     "Venue": "Stamford Bridge",
     "Location": "London",
-    "Founded_Year" : 1905,
+    "Year_Founded" : 1905,
     "Coach_ID": "C001"
 }
 
@@ -27,7 +27,7 @@ Content-Type: application/json
     "Team_Name": "Manchester United",
     "Venue": "Old Trafford",
     "Location": "Manchester",
-    "Founded_Year": 1878,
+    "Year_Founded": 1878,
     "Coach_ID": "C002"
 }
 
@@ -49,7 +49,7 @@ Content-Type: application/json
     "Team_Name": "Manchester United",
     "Venue": "Old Trafford",
     "Location": "Manchester",
-    "Founded_Year": 1878,
+    "Year_Founded": 1878,
     "Coach_ID": "C002"
 }
 
@@ -62,7 +62,7 @@ Content-Type: application/json
     "Team_Name": "Manchester United",
     "Venue": "Old Trafford",
     "Location": "Manchester",
-    "Founded_Year": 1878,
+    "Year_Founded": 1878,
     "Coach_ID": "C002"
 }
 
