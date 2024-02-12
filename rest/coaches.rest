@@ -9,10 +9,10 @@ POST http://localhost:3000/coaches
 Content-Type: application/json
 
    {
-        "Coach_ID": "C098",
-        "Coach_Name": "Keisi Pochettino",
-        "Coach_Age": "18",
-        "Coach_Nationality": "Peru",
+        "Coach_ID": "C001",
+        "Coach_Name": "Mauricio Pochettino",
+        "Coach_Age": "51",
+        "Coach_Nationality": "Argentina",
         "No_Matches": "967",
         "Team_ID": "CHE"
     }
