@@ -7,7 +7,7 @@ const coachSchema = new mongoose.Schema({
     // Validation message for Coach_ID
     message: "String starting with 'C' followed by exactly 3 digits",
   },
-  Coach_Names: {
+  Coach_Name: {
     type: String,
     // Validation message for Coach_Names
     message: "Name of coach must be a string of not more than 25 characters.",

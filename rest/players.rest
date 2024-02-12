@@ -15,12 +15,12 @@ POST http://localhost:3000/players
 Content-Type: application/json
 
 {
-      "Player_ID": "P004",
-      "Name": "Mohamed Salah",
-      "Age": 29,
-      "Height": 175,
-      "Nationality": "Egypt",
-      "Position": "Forward",
+      "Player_ID": "P012",
+      "Player_Name": "Mohamed Salah",
+      "Player_Age": "29",
+      "Player_Height": 175,
+      "Player_Nationality": "Egypt",
+      "Player_Position": "Forward",
       "Team_ID": "LIV"
 }
 
@@ -30,11 +30,11 @@ Content-Type: application/json
 
 {
       "Player_ID": "P002",
-      "Name": "Mason Mount",
-      "Age": 23,
-      "Height": 180,
-      "Nationality": "England",
-      "Position": "Midfielder",
+      "Player_Name": "Mason Mount",
+      "Player_Age": 23,
+      "Player_Height": 180,
+      "Player_Nationality": "England",
+      "Player_Position": "Midfielder",
       "Team_ID": "CHE"
 }
 
@@ -58,11 +58,11 @@ Content-Type: application/json
 
 {
       "Player_ID": "P002",
-      "Name": "Mason Mount",
-      "Age": 23,
-      "Height": 180,
-      "Nationality": "England",
-      "Position": "Midfielder",
+      "Player_Name": "Mason Mount",
+      "Player_Age": 23,
+      "Player_Height": 180,
+      "Player_Nationality": "England",
+      "Player_Position": "Midfielder",
       "Team_ID": "CHE"
 }
 
@@ -73,11 +73,11 @@ Content-Type: application/json
 
 {
       "Player_ID": "P006",
-      "Name": "Phil Foden",
-      "Age": 21,
-      "Height": 171,
-      "Nationality": "England",
-      "Position": "Midfielder",
+      "Player_Name": "Phil Foden",
+      "Player_Age": 21,
+      "Player_Height": 171,
+      "Player_Nationality": "England",
+      "Player_Position": "Midfielder",
       "Team_ID": "MCI"
 }
 
