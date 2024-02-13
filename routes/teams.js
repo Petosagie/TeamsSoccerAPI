@@ -6,9 +6,13 @@ const schemas = require("../middleware/validate.js");
 const { isAuthenticated } = require("../middleware/authenticate.js");
 
 router.get("/", teamsController.getAllTeams);
+
 router.get("/:Team_ID", teamsController.getTeamById);
-router.post("/", schemas.teamValidator, middleware.isDataValidated, teamsController.createTeam);
-router.put("/:Team_ID",schemas.teamValidator, middleware.isDataValidated, teamsController.updateTeam);
-router.delete("/:Team_ID", teamsController.deleteTeam);
+
+router.post("/", isAuthenticated, schemas.teamValidator, middleware.isDataValidated, teamsController.createTeam);
+
+router.put("/:Team_ID", isAuthenticated, schemas.teamValidator, middleware.isDataValidated, teamsController.updateTeam);
+
+router.delete("/:Team_ID", isAuthenticated, teamsController.deleteTeam);
 
 module.exports = router;

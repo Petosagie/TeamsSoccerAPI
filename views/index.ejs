@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TeamsSoccerAPI</title>
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="../images/chelsea.png" alt="Team 1 Logo">
+            <img src="../images/manu.png" alt="Team 2 Logo">
+            <img src="../images/mancity.png" alt="Team 3 Logo">
+            <img src="../images/ars.png" alt="Team 4 Logo">
+            <img src="../images/liv.png" alt="Team 5 Logo">
+        </div>
+    </header>
+
+    <main>
+        <h1><%= user ? `Logged in as ${user.username}` : 'Not logged in' %></h1>
+
+        <h1>Welcome to TeamSoccerAPI</h1>
+        <div class="links-container">
+            <%- user ? '<a href="./logout">Log out</a>' : '<a href="./login">Log in</a>' %>
+            <a href="./api-docs">API Documentation</a>
+        </div>
+    </main>
+</body>
+<style>
+    body {
+        background-image: url('../images/background.jpeg'); 
+        background-size: cover; /* Cover the entire background */
+        background-position: center; /* Center the background image */
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        margin: 0; /* Remove default body margin */
+        padding: 0; /* Remove default body padding */
+    }
+    header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px 0;
+    }
+    .logo-container {
+        display: flex;
+        justify-content: space-around;
+        max-width: 80%; /* Limit the width of the logo container */
+    }
+    .logo-container img {
+        max-height: 100px; /* Set maximum height for logos */
+        margin: 0 10px; /* Add margin between logos */
+    }
+    main {
+        padding: 50px; /* Add padding to main element */
+        color: rgb(245, 242, 249); /* Change text color for better contrast */
+        text-align: center; /* Center text inside main element */
+    }
+    h1 {
+        margin-bottom: 50px;
+    }
+    .links-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+    }
+    .links-container a {
+        background-color: cadetblue;
+        padding: 20px;
+        color: white;
+        text-decoration: none;
+        margin: 0 10px; /* Add margin between links */
+        transition: background-color 0.3s ease; /* Add smooth transition effect */
+    }
+    .links-container a:hover {
+        background-color: darkcyan; /* Change background color on hover */
+    }
+</style>
+</html>

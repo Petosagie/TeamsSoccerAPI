@@ -7,10 +7,15 @@ const schemas = require("../middleware/validate.js");
 const { isAuthenticated } = require("../middleware/authenticate.js");
 
 router.get("/", playersController.getAllPlayers);
+
 router.get("/:Player_ID", playersController.getPlayerById);
+
 router.get("/Position/:Player_Position", playersController.getPlayersByPosition);
-router.post("/", schemas.playerValidator, middleware.isDataValidated, playersController.createPlayer);
-router.put("/:Player_ID", schemas.playerValidator, middleware.isDataValidated,  playersController.updatePlayer);
-router.delete("/:Player_ID", playersController.deletePlayer);
+
+router.post("/", isAuthenticated, schemas.playerValidator, middleware.isDataValidated, playersController.createPlayer);
+
+router.put("/:Player_ID", isAuthenticated, schemas.playerValidator, middleware.isDataValidated,  playersController.updatePlayer);
+
+router.delete("/:Player_ID", isAuthenticated, playersController.deletePlayer);
 
 module.exports = router;
