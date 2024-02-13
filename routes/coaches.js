@@ -7,7 +7,7 @@ const schemas = require("../helpers/validate.js");
 const middleware = require("../middleware/validate.js");
 
 router.get("/", coachesController.getAllCoaches);
-router.get("/:Coach_ID", coachesController.getSingleCoach);
+router.get("/:Coach_ID", coachesController.getSingleCo0000kach);
 router.post("/", schemas.coachValidator, middleware.isDataValidated, coachesController.createCoach);
 router.put("/:Coach_ID", coachesController.updateCoach);
 router.delete("/:Coach_ID", coachesController.deleteCoach);
