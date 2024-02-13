@@ -3,13 +3,13 @@ const express = require('express');
 const router = require("express").Router();
 
 const coachesController = require("../controllers/coaches");
-const schemas = require("../helpers/validate.js");
-const middleware = require("../middleware/validate.js");
+const middleware = require("../helpers/validate.js");
+const schemas = require("../middleware/validate.js");
 
 router.get("/", coachesController.getAllCoaches);
-router.get("/:Coach_ID", coachesController.getSingleCo0000kach);
+router.get("/:Coach_ID", coachesController.getSingleCoach);
 router.post("/", schemas.coachValidator, middleware.isDataValidated, coachesController.createCoach);
-router.put("/:Coach_ID", coachesController.updateCoach);
+router.put("/:Coach_ID", schemas.coachValidator, middleware.isDataValidated,coachesController.updateCoach);
 router.delete("/:Coach_ID", coachesController.deleteCoach);
 
 module.exports = router;
