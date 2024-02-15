@@ -108,7 +108,7 @@ const updateCoach = async (req, res) => {
 
     if (updatedCoach.modifiedCount === 0) {
       // If no coach was updated, respond with a 404 Not Found status
-      return res.status(404).json({ error: "Coach not found" });
+      return res.status(404).json({ error: "Coach with this ID not found" });
     }
     // Respond with a 204 No Content status as the coach was successfully updated
     res.status(204).json(updatedCoach);

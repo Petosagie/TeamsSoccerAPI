@@ -99,7 +99,7 @@ const updateMatch = async (req, res) => {
     };
     const updatedMatch = await Matches.replaceOne({ Match_ID: matchId }, matchInfo);
     if (updatedMatch.modifiedCount === 0) {
-      return res.status(404).json({ error: "Match not found" });
+      return res.status(404).json({ error: "Match with this ID not found" });
     }
     res.status(200).json(updatedMatch); // Changed status to 200
 

@@ -37,7 +37,7 @@ const getPlayerById = async (req, res) => {
 
     if (!singlePlayer) {
       // If no player is found, respond with a 404 Not Found status
-      return res.status(404).json({ error: "Player not found" });
+      return res.status(404).json({ error: "No Player with this ID found" });
     }
     // Respond with a 200 status to get single player
     res.status(200).json(singlePlayer);
