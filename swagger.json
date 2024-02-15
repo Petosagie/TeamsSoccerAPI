@@ -15,7 +15,7 @@
     "/": {
       "get": {
         "tags": [
-          "Welcome Message"
+          "Home Page"
         ],
         "description": "",
         "responses": {
