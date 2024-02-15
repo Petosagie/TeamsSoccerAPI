@@ -17,7 +17,7 @@ Content-Type: application/json
 {
       "Player_ID": "P012",
       "Player_Name": "Mohamed Salah",
-      "Player_Age": "29",
+      "Player_Age": 29,
       "Player_Height": 175,
       "Player_Nationality": "Egypt",
       "Player_Position": "Forward",

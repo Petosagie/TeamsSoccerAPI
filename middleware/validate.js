@@ -55,7 +55,7 @@ const playerValidator = [
     .isString()
     .isLength({ max: 25 }),
 
-  body("Player_Position", "Player position is required and must be one of 'Forward', 'Midfielder', 'Goalkeeper', 'Defender'")
+  body("Player_Position", "Player position is required and must start with Capital Letters and  be one of 'Forward', 'Midfielder', 'Goalkeeper', 'Defender'")
     .exists()
     .isString()
     .isIn(["Forward", "Midfielder", "Goalkeeper", "Defender"]),

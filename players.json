@@ -2,8 +2,8 @@
     {
         "Player_ID": "P001",
         "Player_Name": "Cole Palmer",
-        "Player_Age" :  "21",
-        "Player_Height": "182",
+        "Player_Age" :  21,
+        "Player_Height": 182,
         "Player_Nationality": "England",
         "Player_Position": "Midfielder",
         "Team_ID": " CHE"
