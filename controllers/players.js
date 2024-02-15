@@ -140,7 +140,7 @@ const updatePlayer = async (req, res) => {
     
     // Check if the player is found and updated
     if (updatePlayer.modifiedCount === 0) {
-      return res.status(404).json({ error: "Player not found" });
+      return res.status(404).json({ error: "Player with this ID not found" });
     }
 
     // Respond with a 204 No Content status as the player has been successfully updated

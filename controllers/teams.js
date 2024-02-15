@@ -36,7 +36,7 @@ const getTeamById = async (req, res) => {
 
     // Check if the Team is in the database
     if (!singleTeam) {
-      return res.status(404).json({ error: "Team not found" });
+      return res.status(404).json({ error: "Team with this ID not found" });
     }
 
     // Return the team details if found

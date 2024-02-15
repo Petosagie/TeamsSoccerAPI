@@ -10,7 +10,7 @@ const getAllCoaches = async (req, res) => {
     
     if (!allCoaches || allCoaches.length === 0) {
       // If no coaches are found, respond with a 404 Not Found status
-      return res.status(404).json({ error: "No coaches found" });
+      return res.status(404).json({ error: "Coach not found" });
     }
     
     res.status(200).json(allCoaches);
@@ -36,7 +36,7 @@ const getSingleCoach = async (req, res) => {
 
     if (!singleCoach) {
       // If coach with the given ID is not found, return 404 status
-      return res.status(404).json({ error: "Coach not found" });
+      return res.status(404).json({ error: "No coach with this ID found" });
     }
 
     // If coach is found, return 200 status with coach data
