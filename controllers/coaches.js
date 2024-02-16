@@ -7,16 +7,20 @@ const getAllCoaches = async (req, res) => {
   // #swagger.tags=["coaches"]
   try {
     const allCoaches = await Coaches.find({});
-    
+
     if (!allCoaches || allCoaches.length === 0) {
       // If no coaches are found, respond with a 404 Not Found status
       return res.status(404).json({ error: "Coach not found" });
     }
-    
-    res.status(200).json(allCoaches);
+
+    // res.status(200).json(allCoaches);
+    res.status(200).json({
+      message: "Coaches fetched successfully",
+      Coaches: allCoaches
+    })
   } catch (error) {
     console.error("Error fetching coaches", error);
-    
+
     res.status(500).json({ error: "Internal Server Error" });
   }
 };
@@ -127,7 +131,7 @@ const deleteCoach = async (req, res) => {
   //#swagger.tags=["coaches"]
   try {
     const coachId = req.params.Coach_ID;
-    
+
     // Check if coachId is empty or blank
     if (!coachId) {
       return res.status(400).json({ error: "Coach ID not provided" });
