@@ -10,11 +10,11 @@ POST http://localhost:3000/teams
 Content-Type: application/json
 
 {
-    "Team_ID": "CHE",
+    "Team_ID": "any",
     "Team_Name": "Chelsea",
     "Venue": "Stamford Bridge",
     "Location": "London",
-    "Year_Founded" : 1905,
+    "Year_Founded" : "any",
     "Coach_ID": "C001"
 }
 
