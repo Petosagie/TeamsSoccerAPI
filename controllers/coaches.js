@@ -96,10 +96,10 @@ const updateCoach = async (req, res) => {
     // Extract coach details from the request body
     const coach = {
       Coach_ID: coachId,
-      Coach_Names: req.body.Coach_Names,
+      Coach_Name: req.body.Coach_Name,
       Coach_Age: req.body.Coach_Age,
       Coach_Nationality: req.body.Coach_Nationality,
-      NO_Matches: req.body.NO_Matches,
+      No_Matches: req.body.No_Matches,
       Team_ID: req.body.Team_ID,
     };
 
