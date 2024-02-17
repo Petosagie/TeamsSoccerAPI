@@ -3,6 +3,7 @@ const express = require('express');
 const router = require('../routes/coaches');
 const coachesController = require('../controllers/coaches');
 
+
 jest.mock('../controllers/coaches'); // Mock the coachesController
 // Mock isAuthenticated middleware
 jest.mock('../middleware/authenticate', () => ({
@@ -55,7 +56,7 @@ describe('GET /coaches/:Coach_ID', () => {
       No_Matches: 967,
       Team_ID: "CHE"
     };
-    coachesController.getCoachById.mockImplementation((req, res) => res.status(200).json(mockCoach));
+    coachesController.getSingleCoach.mockImplementation((req, res) => res.status(200).json(mockCoach));
 
     const coachId = 'C001';
     const response = await request(app).get(`/coaches/${coachId}`);
@@ -68,26 +69,26 @@ describe('GET /coaches/:Coach_ID', () => {
 describe('Coaches Routes', () => {
   describe('POST /coaches', () => {
     const validCoachData = {
-      Coach_ID: "C111",
-      Coach_Name: "Testing Coach",
+      Coach_ID: "C001",
+      Coach_Name: "Mauricio Pochettino",
       Coach_Age: 51,
       Coach_Nationality: "Argentina",
       No_Matches: 967,
-      Team_ID: "TST"
+      Team_ID: "CHE"
     };
 
     test('should create a new coach with valid data', async () => {
       coachesController.createCoach.mockImplementation((req, res) => {
-        return res.status(201).json({ ...validCoachData });
+        return res.status(200).json({ ...validCoachData });
       });
 
       const response = await request(app).post('/coaches').send(validCoachData);
-      expect(response.statusCode).toBe(201);
+      expect(response.statusCode).toBe(200);
       expect(response.body).toEqual(validCoachData);
     });
 
     test('should not create a coach with invalid Coach_ID', async () => {
-      const invalidCoachData = { ...validCoachData, Coach_ID: 'InvalidID' };
+      const invalidCoachData = { ...validCoachData, Coach_ID: "Ckhdd" };
 
       coachesController.createCoach.mockImplementation((req, res) => {
         return res.status(400).json({ error: 'Invalid coach ID format' });
@@ -113,6 +114,7 @@ describe('Coaches Routes', () => {
 
   describe('PUT /coaches/:Coach_ID', () => {
     const validUpdateData = {
+      Coach_ID: "C123",
       Coach_Name: "Testing Name",
       Coach_Age: 51,
       Coach_Nationality: "Argentina",
@@ -126,12 +128,12 @@ describe('Coaches Routes', () => {
       });
 
       const response = await request(app).put(`/coaches/${coachId}`).send(validUpdateData);
-      expect(response.statusCode).toBe(200);
+      expect(response.statusCode).toBe(400);
       expect(response.body).toEqual({ Coach_ID: coachId, ...validUpdateData });
     });
 
     test('should not update a coach with invalid data', async () => {
-      const coachId = 'C111';
+      const coachId = 'C123';
       const invalidUpdateData = { ...validUpdateData, Coach_Age: 120 }; // Invalid age
 
       coachesController.updateCoach.mockImplementation((req, res) => {

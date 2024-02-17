@@ -68,7 +68,7 @@ const createTeam = async (req, res) => {
     };
     
     const newTeam = await Teams.create(teamInfo);
-    res.status(204).json(newTeam);
+    res.status(201).json(newTeam);
     console.log(newTeam);
   } catch (error) {
     // Log the detailed error information
@@ -100,7 +100,7 @@ const updateTeam = async (req, res) => {
       return res.status(404).json({ error: "Team with this ID not found" });
     }
     
-    res.status(200).json(updatedTeam); 
+    res.status(201).json(updatedTeam); 
   } catch (error) {
     console.error("Error updating team:", error);
     

@@ -71,7 +71,7 @@ const createMatch = async (req, res) => {
     }
     
     const newMatch = await Matches.create(matchInfo);
-    res.status(204).json(newMatch); 
+    res.status(201).json(newMatch); 
   } catch (error) {
     console.error("Error creating match:", error);
     
@@ -101,7 +101,7 @@ const updateMatch = async (req, res) => {
     if (updatedMatch.modifiedCount === 0) {
       return res.status(404).json({ error: "Match with this ID not found" });
     }
-    res.status(200).json(updatedMatch); // Changed status to 200
+    res.status(201).json(updatedMatch); // Changed status to 200
 
   } catch (error) {
     console.error("Error updating match:", error);

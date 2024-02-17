@@ -99,13 +99,13 @@ const createPlayer = async (req, res) => {
     // Check if a player with the same Player_ID already exists
     const existingPlayer = await Players.findOne({ Player_ID: playerInfo.Player_ID });
     if (existingPlayer) {
-      // Respond with a 409 Conflict status and an appropriate error message
-      return res.status(409).json({ error: "Player with the same ID already exists" });
+      // Respond with a 400 Conflict status and an appropriate error message
+      return res.status(400).json({ error: "Player with the same ID already exists" });
     }
 
     const newPlayer = await Players.create(playerInfo);
-    // Respond with a 204 No Content status as the player has been successfully created
-    res.status(204).json(newPlayer);
+    // Respond with a 201 No Content status as the player has been successfully created
+    res.status(201).json(newPlayer);
   } catch (error) { 
     console.error("Error creating player:", error);
     // Respond with a 500 Internal Server Error status and an appropriate error message
@@ -143,8 +143,8 @@ const updatePlayer = async (req, res) => {
       return res.status(404).json({ error: "Player with this ID not found" });
     }
 
-    // Respond with a 204 No Content status as the player has been successfully updated
-    res.status(204).json(updatePlayer);
+    // Respond with a 201 No Content status as the player has been successfully updated
+    res.status(201).json(updatePlayer);
   } catch (error) {
     // Log the detailed error information
     console.error("Error updating player:", error);

@@ -78,7 +78,7 @@ const createCoach = async (req, res) => {
 
     // If no coach with the same Coach_ID exists, create a new coach
     const newCoach = await Coaches.create(coach);
-    res.status(204).json(newCoach);
+    res.status(201).json(newCoach);
   } catch (error) {
     // Log the detailed error information
     console.error("Error creating coach:", error);
@@ -96,10 +96,10 @@ const updateCoach = async (req, res) => {
     // Extract coach details from the request body
     const coach = {
       Coach_ID: coachId,
-      Coach_Names: req.body.Coach_Names,
+      Coach_Name: req.body.Coach_Name,
       Coach_Age: req.body.Coach_Age,
       Coach_Nationality: req.body.Coach_Nationality,
-      NO_Matches: req.body.NO_Matches,
+      No_Matches: req.body.No_Matches,
       Team_ID: req.body.Team_ID,
     };
 
@@ -114,8 +114,8 @@ const updateCoach = async (req, res) => {
       // If no coach was updated, respond with a 404 Not Found status
       return res.status(404).json({ error: "Coach with this ID not found" });
     }
-    // Respond with a 204 No Content status as the coach was successfully updated
-    res.status(204).json(updatedCoach);
+    // Respond with a 201 No Content status as the coach was successfully updated
+    res.status(201).json(updatedCoach);
   } catch (error) {
     // Log the detailed error information
     console.error("Error updating coach:", error);

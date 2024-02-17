@@ -4,7 +4,7 @@
   "description": "## General Info - THOMPSON NKOMO  - OSAGIE OHENHEN - JARED MARTINEZ - CARDENAS GODOY HATSUMI",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "Jest",
     "start": "nodemon server.js",
     "swagger": "node ./swagger.js"
   },
