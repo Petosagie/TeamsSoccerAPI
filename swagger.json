@@ -5,10 +5,10 @@
     "description": "API for NodeJS (TeamSoccerAPI) Information on teams, players, coaches, and matches.",
     "version": "1.0.0"
   },
-  "host": "localhost:3000",
+  "host": "teamsoccerapi.onrender.com",
   "basePath": "/",
   "schemes": [
-    "http"
+    "https"
   ],
   "paths": {
     "/": {
