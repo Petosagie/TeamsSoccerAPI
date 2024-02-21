@@ -79,16 +79,16 @@ describe('Coaches Routes', () => {
 
     test('should create a new coach with valid data', async () => {
       coachesController.createCoach.mockImplementation((req, res) => {
-        return res.status(200).json({ ...validCoachData });
+        return res.status(201).json({ ...validCoachData });
       });
 
       const response = await request(app).post('/coaches').send(validCoachData);
-      expect(response.statusCode).toBe(200);
-      expect(response.body).toEqual(validCoachData);
+      expect(response.statusCode).toBe(201);
+      expect(response.body).toEqual({ ...validCoachData });
     });
 
     test('should not create a coach with invalid Coach_ID', async () => {
-      const invalidCoachData = { ...validCoachData, Coach_ID: "Ckhdd" };
+      const invalidCoachData = { ...validCoachData, Coach_ID: "C002" };
 
       coachesController.createCoach.mockImplementation((req, res) => {
         return res.status(400).json({ error: 'Invalid coach ID format' });
@@ -119,6 +119,7 @@ describe('Coaches Routes', () => {
       Coach_Age: 51,
       Coach_Nationality: "Argentina",
       No_Matches: 967,
+      Team_ID: "CHE"
     };
 
     test('should update a coach with valid data', async () => {
@@ -128,13 +129,13 @@ describe('Coaches Routes', () => {
       });
 
       const response = await request(app).put(`/coaches/${coachId}`).send(validUpdateData);
-      expect(response.statusCode).toBe(400);
+      expect(response.statusCode).toBe(200);
       expect(response.body).toEqual({ Coach_ID: coachId, ...validUpdateData });
     });
 
     test('should not update a coach with invalid data', async () => {
       const coachId = 'C123';
-      const invalidUpdateData = { ...validUpdateData, Coach_Age: 120 }; // Invalid age
+      const invalidUpdateData = { ...validUpdateData, Coach_Age: 20 }; // Invalid age
 
       coachesController.updateCoach.mockImplementation((req, res) => {
         return res.status(400).json({ error: 'Invalid data' });
@@ -146,16 +147,17 @@ describe('Coaches Routes', () => {
     });
 
     test('should handle non-existent coach update', async () => {
-      const coachId = 'C999'; // Non-existent coach
+      const coachId = 'C123'; // Non-existent coach
 
       coachesController.updateCoach.mockImplementation((req, res) => {
-        return res.status(404).json({ error: 'Coach not found' });
+        return res.status(404).json({ error: "Coach not found" });
       });
 
       const response = await request(app).put(`/coaches/${coachId}`).send(validUpdateData);
       expect(response.statusCode).toBe(404);
       expect(response.body.error).toBe('Coach not found');
     });
+
   });
 
   describe('DELETE /coaches/:Coach_ID', () => {

@@ -83,6 +83,9 @@ const createCoach = async (req, res) => {
     // Log the detailed error information
     console.error("Error creating coach:", error);
     // Respond with a 400 which indicate a bad request 
+   res.status(400).json({ 
+      error: 'Invalid coach ID format' 
+    });
     res.status(500).json({
       error: "Error creating coach. Check the server logs for more details.",
     });
@@ -105,7 +108,7 @@ const updateCoach = async (req, res) => {
 
     // Check if coachId is empty or blank
     if (!coachId) {
-      return res.status(400).json({ error: "Coach ID not provided" });
+      return res.status(404).json({ error: "Coach ID not provided" });
     }
 
     const updatedCoach = await Coaches.replaceOne({ Coach_ID: coachId }, coach);
@@ -114,8 +117,8 @@ const updateCoach = async (req, res) => {
       // If no coach was updated, respond with a 404 Not Found status
       return res.status(404).json({ error: "Coach with this ID not found" });
     }
-    // Respond with a 201 No Content status as the coach was successfully updated
-    res.status(201).json(updatedCoach);
+    // Respond with a 200 No Content status as the coach was successfully updated
+    res.status(200).json(updatedCoach);
   } catch (error) {
     // Log the detailed error information
     console.error("Error updating coach:", error);

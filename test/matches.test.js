@@ -62,14 +62,24 @@ describe('Matches Routes', () => {
     test('should create a new match', async () => {
       const newMatchData = {
         Match_ID: 'M003',
-        Date: '2023-01-01T00:00:00.000Z',
-        Teams_Involved: ['T003', 'T004'],
+        Date: '02-20-2024',
+        Teams_Involved: ['CHE', 'LIV'],
         Score: '1-0',
         Stadium: 'Stadium 2',
         Goals: [
           { Player_ID: 'P003', Time: '30' }
         ]
       };
+      // Match_ID: "M002",
+      // Match_Date: "2024-02-05",
+      // Teams_Involved: ["LIV", "MCI"],
+      // Score: "1-1",
+      // Stadium: "Anfield",
+      // Goals: [
+      //   { "Player_ID": "P003", "Time": "30" },
+      //   { "Player_ID": "P004", "Time": "75" }
+      // ]
+
       matchesController.createMatch.mockImplementation((req, res) => res.status(201).json(newMatchData));
 
       const response = await request(app).post('/matches').send(newMatchData);
