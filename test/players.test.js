@@ -1,7 +1,7 @@
 const request = require('supertest');
 const express = require('express');
-const router = require('../routes/players'); 
-const playersController = require('../controllers/players'); 
+const router = require('../routes/players');
+const playersController = require('../controllers/players');
 
 jest.mock('../controllers/players'); // Mock the playersController
 jest.mock('../middleware/authenticate', () => ({ // Mock the authenticate middleware
@@ -11,29 +11,30 @@ jest.mock('../middleware/authenticate', () => ({ // Mock the authenticate middle
 const app = express();
 app.use(express.json());
 app.use('/players', router);
-app.get('/players/position/:Position', playersController.getPlayersByPosition); 
+app.get('/players/position/:Position', playersController.getPlayersByPosition);
 
 describe('Players Routes', () => {
   describe('GET /players', () => {
     test('should fetch all players', async () => {
       const mockPlayers = [
         {
-          Player_ID: 'P001',
-          Name: 'Player A',
-          Age: '20',
-          Height: '180cm',
-          Nationality: 'American',
-          Position: 'Midfielder',
-          Team_ID: 'T001'
+          "Player_ID": "P001",
+          "Player_Name": "Cole Palmer",
+          "Player_Age": 30,
+          "Player_Height": 182,
+          "Player_Nationality": "England",
+          "Player_Position": "Midfielder",
+          "Team_ID": "LIV",
         },
         {
           Player_ID: 'P002',
-          Name: 'Player B',
-          Age: '22',
-          Height: '175cm',
-          Nationality: 'British',
-          Position: 'Defender',
-          Team_ID: 'T002'
+          "Player_ID": "P002",
+          "Player_Name": "Mason Mount",
+          "Player_Age": 23,
+          "Player_Height": 180,
+          "Player_Nationality": "England",
+          "Player_Position": "Midfielder",
+          "Team_ID": "CHE"
         }
       ];
       playersController.getAllPlayers.mockImplementation((req, res) => res.status(200).json(mockPlayers));
@@ -47,13 +48,13 @@ describe('Players Routes', () => {
   describe('GET /players/:Player_ID', () => {
     test('should fetch a single player by ID', async () => {
       const mockPlayer = {
-        Player_ID: 'P001',
-        Name: 'Player A',
-        Age: '20',
-        Height: '180cm',
-        Nationality: 'American',
-        Position: 'Midfielder',
-        Team_ID: 'T001'
+        "Player_ID": "P002",
+        "Player_Name": "Mason Mount",
+        "Player_Age": 23,
+        "Player_Height": 180,
+        "Player_Nationality": "England",
+        "Player_Position": "Midfielder",
+        "Team_ID": "CHE"
       };
       playersController.getPlayerById.mockImplementation((req, res) => res.status(200).json(mockPlayer));
 
@@ -68,13 +69,13 @@ describe('Players Routes', () => {
       const position = 'Goalkeeper';
       const mockPlayers = [
         {
-          Player_ID: 'P003',
-          Name: 'Player C',
-          Age: '23',
-          Height: '185cm',
-          Nationality: 'German',
-          Position: position,
-          Team_ID: 'T003'
+          "Player_ID": "P001",
+          "Player_Name": "Mason Mount",
+          "Player_Age": 23,
+          "Player_Height": 180,
+          "Player_Nationality": "England",
+          "Player_Position": "position",
+          "Team_ID": "CHE"
         }
       ];
       playersController.getPlayersByPosition.mockImplementation((req, res) => res.status(200).json(mockPlayers));
@@ -88,13 +89,13 @@ describe('Players Routes', () => {
   describe('POST /players', () => {
     test('should create a new player', async () => {
       const newPlayerData = {
-        Player_ID: 'P004',
-        Name: 'Player D',
-        Age: '21',
-        Height: '178cm',
-        Nationality: 'Spanish',
-        Position: 'Forward',
-        Team_ID: 'T004'
+        "Player_ID": "P002",
+        "Player_Name": "Mason Mount",
+        "Player_Age": 23,
+        "Player_Height": 180,
+        "Player_Nationality": "England",
+        "Player_Position": "Midfielder",
+        "Team_ID": "CHE"
       };
       playersController.createPlayer.mockImplementation((req, res) => res.status(201).json(newPlayerData));
 
@@ -108,11 +109,13 @@ describe('Players Routes', () => {
     test('should update a player', async () => {
       const playerId = 'P001';
       const updateData = {
-        Name: 'Player A Updated',
-        Age: '25',
-        Height: '182cm',
-        Nationality: 'American',
-        Position: 'Midfielder'
+        "Player_ID": "P002",
+        "Player_Name": "Mason Mount",
+        "Player_Age": 23,
+        "Player_Height": 180,
+        "Player_Nationality": "England",
+        "Player_Position": "Midfielder",
+        "Team_ID": "CHE"
       };
       playersController.updatePlayer.mockImplementation((req, res) => res.status(200).json({ Player_ID: playerId, ...updateData }));
 

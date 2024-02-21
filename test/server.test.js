@@ -19,7 +19,7 @@ app.set('view engine', 'ejs');
 
 // Mock Passport GitHub Strategy
 passport.authenticate = jest.fn(() => (req, res, next) => {
-  req.user = { id: '12345', username: 'testuser' }; // Mock user object
+  req.user = { id: 'ourId123', username: 'Myusername' }; // Mock user object
   next();
 });
 //
